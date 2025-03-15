@@ -42,10 +42,11 @@ app.use("/api/reviews", reviewRoutes);
 app.use("/api/categories", categoryRoutes);
 // Middleware to parse JSON
 app.use(cors({
-        credentials: true,
-        origin: process.env.CORS_ORIGIN
-    }))
-    app.use(express.json());
+  origin: ["http://localhost:3000", "http://localhost:5173"], // Allow frontend
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
+app.use(express.json());
     
     
 
